@@ -1,0 +1,31 @@
+{
+  "name": "hw8-team-profile-generator",
+  "version": "1.0.0",
+  "description": "Team profile generator",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.2",
+    "jest": "^27.0.6"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gim928/HW8-Team-Profile-Generator.git"
+  },
+  "keywords": [
+    "team",
+    "profile",
+    "generator"
+  ],
+  "author": "gim928",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gim928/HW8-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/gim928/HW8-Team-Profile-Generator#readme"
+}
