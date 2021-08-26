@@ -5,7 +5,7 @@ const Intern = require("../types/intern");
 const Engineer = require("../types/engineer");
 const index = require("../index");
 
-const generateHTML = function (employeeCards) {
+const generateHTML = function (employeeJoin) {
   return `
     <!DOCTYPE html>
   <html lang="en">
@@ -27,7 +27,7 @@ const generateHTML = function (employeeCards) {
           <div class="container">
               <div class="row justify-content-center" id="team-cards">
                   <!--Employee Cards-->
-                  ${employeeCards}
+                  ${employeeJoin}
               </div>
           </div>
       </main>
@@ -107,16 +107,18 @@ function generateTeam(teamMembers) {
       employeeCards.push(internCard);
     }
   }
-  // var employeeJoin = employeeCards.join("");
-  // console.log(employeeJoin);
-  generateHTML(employeeCards);
-  const pageHTML = JSON.stringify(generateHTML(employeeCards));
+  console.log(employeeCards);
+  var employeeJoin = employeeCards.join("");
+  console.log(employeeJoin);
+  // generateHTML(employeeJoin);
+  const pageHTML = generateHTML(employeeJoin);
+  console.log(pageHTML);
   writeToFile(pageHTML);
 }
 
-const writeToFile = (pageHTML) => {
+const writeToFile = (data) => {
   // var htmlData = JSON.stringify(generateTeam(data));
-  fs.writeFile("src/index.html", pageHTML, (err) => {
+  fs.writeFile("src/index.html", data, (err) => {
     err ? console.log(err) : console.log("file was written!");
   });
 };
