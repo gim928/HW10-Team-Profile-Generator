@@ -1,12 +1,15 @@
 const inquirer = require("inquirer");
 const generateTeam = require("./src/generateTeam");
 const fs = require("fs");
-// const Intern = require("./types/intern");
-// const engineer = require("./types/engineer");
+const Intern = require("./types/intern");
+const Engineer = require("./types/engineer");
 const Manager = require("./types/manager");
 
 const teamMembers = [];
 managerQuestions();
+// .then(teamMembers)=> {
+//   return
+// }
 
 function managerQuestions() {
   const data = inquirer
@@ -60,9 +63,9 @@ function managerQuestions() {
         internQuestions();
       }
       if (data.addMember === "I don't want to add any more team members") {
+        // return teamMembers;
         generateTeam(teamMembers);
-
-        return;
+        writeToFile(teamMembers);
       }
     })
     .catch((err) => {
@@ -121,9 +124,8 @@ function engineerQuestions() {
         internQuestions();
       }
       if (data.addMember === "I don't want to add any more team members") {
-        console.log(teamMembers);
-        writeToFile("index.html", data);
-        return;
+        generateTeam(teamMembers);
+        writeToFile(teamMembers);
       }
     });
 }
@@ -149,7 +151,7 @@ function internQuestions() {
       {
         type: "input",
         message: "What is school does the intern go to?",
-        name: "github",
+        name: "school",
       },
       {
         type: "list",
@@ -178,22 +180,19 @@ function internQuestions() {
         internQuestions();
       }
       if (data.addMember === "I don't want to add any more team members") {
-        console.log(teamMembers);
-        writeToFile("index.html", data);
-        return;
+        generateTeam(teamMembers);
+        writeToFile(teamMembers);
       }
     });
 }
-
 const writeToFile = (data) => {
   fs.writeFile("src/index.html", JSON.stringify(data), (err) => {
     err ? console.log(err) : console.log("file was written!");
   });
 };
-
 // function writeToFile(index, data) {
 //   var htmlData = generateTeam(data);
 //   fs.writeFile(index, htmlData, (err) => {
 //     err ? console.log(err) : console.log("file was written!");
 //   });
-// }
+//
