@@ -63,9 +63,8 @@ function managerQuestions() {
         internQuestions();
       }
       if (data.addMember === "I don't want to add any more team members") {
-        // return teamMembers;
         generateTeam(teamMembers);
-        writeToFile(teamMembers);
+        // writeToFile(teamMembers);
       }
     })
     .catch((err) => {
@@ -125,8 +124,11 @@ function engineerQuestions() {
       }
       if (data.addMember === "I don't want to add any more team members") {
         generateTeam(teamMembers);
-        writeToFile(teamMembers);
+        // writeToFile(teamMembers);
       }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
 
@@ -181,18 +183,10 @@ function internQuestions() {
       }
       if (data.addMember === "I don't want to add any more team members") {
         generateTeam(teamMembers);
-        writeToFile(teamMembers);
+        // writeToFile(teamMembers);
       }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
-const writeToFile = (data) => {
-  fs.writeFile("src/index.html", JSON.stringify(data), (err) => {
-    err ? console.log(err) : console.log("file was written!");
-  });
-};
-// function writeToFile(index, data) {
-//   var htmlData = generateTeam(data);
-//   fs.writeFile(index, htmlData, (err) => {
-//     err ? console.log(err) : console.log("file was written!");
-//   });
-//

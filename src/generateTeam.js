@@ -3,6 +3,7 @@ const Employee = require("../types/employee");
 const Manager = require("../types/manager");
 const Intern = require("../types/intern");
 const Engineer = require("../types/engineer");
+const index = require("../index");
 
 const generateHTML = function (employeeCards) {
   return `
@@ -41,7 +42,7 @@ const generateManager = function (Manager) {
   return `
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h3 class="card-title">Manager</h5>
+    <h3 class="card-title">Manager</h3>
     <h4>${Manager.name}</h4>
   </div>
   <ul class="list-group list-group-flush">
@@ -57,13 +58,13 @@ const generateEngineer = function (Engineer) {
   return `
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h3 class="card-title">Engineer</h5>
+    <h3 class="card-title">Engineer</h3>
     <h4>${Engineer.name}</h4>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">ID: ${Engineer.id}</li>
     <li class="list-group-item">Email: ${Engineer.email}</li>
-    <li class="list-group-item">School: ${Engineer.github}</li>
+    <li class="list-group-item">Github: ${Engineer.github}</li>
   </ul>
 </div>
 `;
@@ -73,7 +74,7 @@ const generateIntern = function (Intern) {
   return `
 <div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h3 class="card-title">Intern</h5>
+    <h3 class="card-title">Intern</h3>
     <h4>${Intern.name}</h4>
   </div>
   <ul class="list-group list-group-flush">
@@ -85,11 +86,13 @@ const generateIntern = function (Intern) {
 `;
 };
 
-var employeeCards = [];
+// var employeeCards = [];
+// const employeeJoin = employeeCards.join("");
+// console.log(employeeJoin);
 
 function generateTeam(teamMembers) {
-  console.log(teamMembers);
-
+  // console.log(teamMembers);
+  var employeeCards = [];
   for (i = 0; i < teamMembers.length; i++) {
     if (teamMembers[i].role === "manager") {
       const managerCard = generateManager(teamMembers[i]);
@@ -103,9 +106,18 @@ function generateTeam(teamMembers) {
       const internCard = generateIntern(teamMembers[i]);
       employeeCards.push(internCard);
     }
-    generateHTML(employeeCards);
-    console.log(employeeCards);
   }
+  // var employeeJoin = employeeCards.join("");
+  // console.log(employeeJoin);
+  generateHTML(employeeCards);
+  const pageHTML = JSON.stringify(generateHTML(employeeCards));
+  writeToFile(pageHTML);
 }
 
+const writeToFile = (pageHTML) => {
+  // var htmlData = JSON.stringify(generateTeam(data));
+  fs.writeFile("src/index.html", pageHTML, (err) => {
+    err ? console.log(err) : console.log("file was written!");
+  });
+};
 module.exports = generateTeam;
