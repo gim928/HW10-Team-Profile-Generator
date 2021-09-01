@@ -1,5 +1,6 @@
 // pull employee code
 const Manager = require("../types/manager");
+const Employee = require("../types/employee");
 
 test("should return true", () => {
   let employee1 = new Manager("Gary", 1, "g@gmail.com");
@@ -12,7 +13,7 @@ test("should return true", () => {
 test("gets employee id", () => {
   let employee = new Manager("Gary", 1, "g@gmail.com");
 
-  expect(employee.getID()).toEqual(expect.any(Number));
+  expect(employee.getId()).toEqual(expect.any(Number));
 });
 
 test("gets employee email", () => {

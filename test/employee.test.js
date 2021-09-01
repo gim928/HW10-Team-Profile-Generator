@@ -12,7 +12,7 @@ test("should return true", () => {
 test("gets employee id", () => {
   let employee = new Employee("Gary", 1, "g@gmail.com");
 
-  expect(employee.getID()).toEqual(expect.any(Number));
+  expect(employee.getId()).toEqual(expect.any(Number));
 });
 
 test("gets employee email", () => {
