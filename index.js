@@ -50,7 +50,6 @@ function managerQuestions() {
         data.name,
         data.id,
         data.email,
-        "manager",
         data.officeNum
       );
       // console.log(data);
@@ -112,7 +111,6 @@ function engineerQuestions() {
         data.name,
         data.id,
         data.email,
-        "engineer",
         data.github
       );
       teamMembers.push(engineer);
@@ -167,13 +165,7 @@ function internQuestions() {
       },
     ])
     .then((data) => {
-      const intern = new Intern(
-        data.name,
-        data.id,
-        data.email,
-        "intern",
-        data.school
-      );
+      const intern = new Intern(data.name, data.id, data.email, data.school);
       teamMembers.push(intern);
       if (data.addMember === "engineer") {
         engineerQuestions();

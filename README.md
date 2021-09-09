@@ -45,4 +45,4 @@ You may also reach me on github: <https://github.com/gim928>
 
 Live link to the application: https://gim928.github.io/HW8-Team-Profile-Generator/
 
-Video DEMO: https://drive.google.com/file/d/1sDy8nqf9Y5eJ_6_mSf7OLnZYyyZXMLKp/view
+Video DEMO: https://drive.google.com/file/d/1DSXs2am9nqZdnoV7DuJM99Ui-Eju9iUx/view

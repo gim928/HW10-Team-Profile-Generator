@@ -1,6 +1,6 @@
 // pull employee code
 const Manager = require("../types/manager");
-const Employee = require("../types/employee");
+
 
 test("should return true", () => {
   let employee1 = new Manager("Gary", 1, "g@gmail.com");

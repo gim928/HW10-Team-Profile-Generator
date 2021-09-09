@@ -52,7 +52,7 @@ const generateManager = function (Manager) {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"id="custom-list">ID: ${Manager.id}</li>
-    <li class="list-group-item"id="custom-list">Email: ${Manager.email}</li>
+    <li class="list-group-item"id="custom-list">Email: <a href="mailto:${Manager.email}">${Manager.email}</a></li>
     <li class="list-group-item"id="custom-list">Office Number: ${Manager.officeNum}</li>
   </ul>
 </div>
@@ -69,8 +69,8 @@ const generateEngineer = function (Engineer) {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"id="custom-list">ID: ${Engineer.id}</li>
-    <li class="list-group-item"id="custom-list">Email: ${Engineer.email}</li>
-    <li class="list-group-item"id="custom-list">Github: ${Engineer.github}</li>
+    <li class="list-group-item"id="custom-list">Email:<a href="mailto:${Engineer.email}">${Engineer.email}</a></li>
+    <li class="list-group-item"id="custom-list">Github: <a href= "https://github.com/${Engineer.github}" target="no_blank">${Engineer.github}</a></li>
   </ul>
 </div>
 `;
@@ -85,7 +85,7 @@ const generateIntern = function (Intern) {
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"id="custom-list">ID: ${Intern.id}</li>
-    <li class="list-group-item"id="custom-list">Email: ${Intern.email}</li>
+    <li class="list-group-item"id="custom-list">Email: <a href="mailto:${Intern.email}">${Intern.email}</a></li>
     <li class="list-group-item"id="custom-list">School: ${Intern.school}</li>
   </ul>
 </div>
@@ -93,23 +93,23 @@ const generateIntern = function (Intern) {
 };
 
 function generateTeam(teamMembers) {
-  // console.log(teamMembers);
+  console.log(teamMembers);
   var employeeCards = [];
   for (i = 0; i < teamMembers.length; i++) {
-    if (teamMembers[i].role === "manager") {
+    if (teamMembers[i].role === "Manager") {
       const managerCard = generateManager(teamMembers[i]);
       employeeCards.push(managerCard);
     }
-    if (teamMembers[i].role === "engineer") {
+    if (teamMembers[i].role === "Engineer") {
       const engineerCard = generateEngineer(teamMembers[i]);
       employeeCards.push(engineerCard);
     }
-    if (teamMembers[i].role === "intern") {
+    if (teamMembers[i].role === "Intern") {
       const internCard = generateIntern(teamMembers[i]);
       employeeCards.push(internCard);
     }
   }
-  console.log(employeeCards);
+  // console.log(employeeCards);
   var employeeJoin = employeeCards.join("");
   // console.log(employeeJoin);
   // generateHTML(employeeJoin);
